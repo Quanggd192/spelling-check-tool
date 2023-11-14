@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import ChatbotApp from "./pages/OpenAI";
+import TextGears from "./pages/text-gears";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import "./index.css";
+const App = () => {
+  // const configuration = new Configuration({
+  //   apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+  // });
+  const router = createBrowserRouter([
+    {
+      path: "/text",
+      element: <TextGears />,
+      errorElement: <div>Error</div>,
+    },
+    {
+      path: "/",
+      element: <ChatbotApp />,
+      errorElement: <div>Error</div>,
+    },
+  ]);
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
-}
+};
+
 
 export default App;
