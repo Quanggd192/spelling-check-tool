@@ -1,0 +1,99 @@
+.page-container {
+  max-width: 1000px;
+  margin: auto;
+  max-height: calc(100vh - 120px);
+  overflow-y: scroll;
+}
+.chatbox-container {
+  margin: auto;
+  padding-top: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+.input-box {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  max-width: 600px;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  margin: auto;
+}
+textarea {
+  padding: 5px;
+  border-radius: 10px;
+  border: solid 1px #59a7ff;
+  box-shadow: 0 10px #d0eefb;
+}
+.send-mess-btn-group {
+  display: inline-block;
+  position: absolute;
+  top: 6px;
+  right: -0;
+}
+.send-mess-icon {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+.send-mess-icon:hover {
+  -webkit-animation: mover 0.3s infinite alternate;
+  animation: mover 0.3s infinite alternate;
+}
+input:focus,
+textarea:focus,
+select:focus,
+a:focus {
+  outline: none;
+}
+.answer-container {
+  max-height: calc(100vh - 150px);
+}
+div {
+  white-space: initial;
+}
+.input-text {
+  box-sizing: border-box;
+  padding-right: 100px;
+}
+.input {
+  height: 25px;
+  line-height: 25px;
+  border-radius: 10px;
+}
+.action-button {
+  background: #1ab5c9;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  color: #fff;
+}
+.loading-container {
+  /* position: absolute; */
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.5;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@-webkit-keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
