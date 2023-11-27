@@ -10,6 +10,10 @@ const App = () => {
   // const configuration = new Configuration({
   //   apiKey: process.env.REACT_APP_OPENAI_API_KEY,
   // });
+  console.log(
+    "process.env.REACT_APP_OPENAI_API_KEY",
+    process.env.REACT_APP_OPENAI_API_KEY
+  );
   const openai = new OpenAI({
     apiKey: process.env.REACT_APP_OPENAI_API_KEY,
     dangerouslyAllowBrowser: true,
