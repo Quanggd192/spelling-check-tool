@@ -1,5 +1,6 @@
 import EssayTextFixing from "./pages/openai/EssayTextFixing";
 import EssayImageFixing from "./pages/openai/EssayImageFixing";
+import CompoundPage from "./pages/openai/CompoundPage";
 import TextGears from "./pages/text-gears";
 import OpenAI from "openai";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -31,9 +32,14 @@ const App = () => {
     },
     {
       path: "/",
-      element: <EssayTextFixing openai={openai} />,
+      element: <CompoundPage openai={openai} />,
       errorElement: <div>Error</div>,
     },
+    // {
+    //   path: "/",
+    //   element: <EssayTextFixing openai={openai} />,
+    //   errorElement: <div>Error</div>,
+    // },
   ]);
 
   return (
