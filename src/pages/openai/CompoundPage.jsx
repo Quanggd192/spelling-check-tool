@@ -53,9 +53,9 @@ export default function CompoundPage(props) {
             </div>
           )}
           <div className="essay-content-box">
-            {!apiResponse && !loading && (
-              <div>Errors will be shown here...</div>
-            )}
+            {((activeTab === "text" && !apiResponse) ||
+              (activeTab === "image" && !apiResponseImage)) &&
+              !loading && <div>Errors will be shown here...</div>}
             {loading && (
               <div className="loading-container-1">
                 <ReactLoading
@@ -67,9 +67,21 @@ export default function CompoundPage(props) {
               </div>
             )}
             {!loading && apiResponse && activeTab === "text" && (
-              <div>{apiResponse}</div>
+              <div
+                contentEditable="true"
+                dangerouslySetInnerHTML={{
+                  __html: apiResponse.replaceAll("\n", "<br/>"),
+                }}
+              ></div>
             )}
-            {!loading && activeTab === "image" && <div>{apiResponseImage}</div>}
+            {!loading && activeTab === "image" && (
+              <div
+                contentEditable="true"
+                dangerouslySetInnerHTML={{
+                  __html: apiResponseImage.replaceAll("\n", "<br/>"),
+                }}
+              ></div>
+            )}
           </div>
         </div>
         <div className="footer">

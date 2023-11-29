@@ -19,7 +19,7 @@ export default function useOpenai(openai) {
           content: [
             {
               type: "text",
-              text: "This is an image of a handwritten essay. give me the text from it",
+              text: "This is an image of a handwritten essay. give me the text from it. Please use line breaks between paragraphs",
             },
             {
               type: "image_url",
@@ -41,7 +41,7 @@ export default function useOpenai(openai) {
   const handleSubmitText = async (textInput, type = "text") => {
     setLoading(true);
     try {
-      const prompt = `${prePrompt}: ${textInput}`;
+      const prompt = `${prePrompt}: ${textInput}. Please use line breaks between paragraphs`;
       const result = await openai.chat.completions.create({
         messages: [{ role: "system", content: prompt }],
         model: "gpt-4",
@@ -55,8 +55,6 @@ export default function useOpenai(openai) {
     }
     setLoading(false);
   };
-  console.log("apiResponseImage", apiResponseImage);
-  console.log("apiResponse", apiResponse);
   return {
     handleSubmitImage,
     handleSubmitText,
