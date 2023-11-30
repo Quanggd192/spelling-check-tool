@@ -41,7 +41,7 @@ export default function useOpenai(openai) {
   const handleSubmitText = async (textInput, type = "text") => {
     setLoading(true);
     try {
-      const prompt = `${prePrompt}: ${textInput}. Please use line breaks between paragraphs`;
+      const prompt = `${prePrompt}: ${textInput}. Please use line breaks between paragraphs, and put the first sentence of each paragraph in the <b></b> tag`;
       const result = await openai.chat.completions.create({
         messages: [{ role: "system", content: prompt }],
         model: "gpt-4",
